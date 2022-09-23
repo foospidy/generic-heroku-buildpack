@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# https://devcenter.heroku.com/articles/buildpack-api#bin-detect
+
+echo "-----> Generic Buildpack"
+exit 0
