@@ -1,4 +1,4 @@
-# generic-buildpack
+# generic-heroku-buildpack
 
 A generic buildpack template for a reverse proxy process
 
