@@ -1,5 +1,5 @@
 # generic-heroku-buildpack
 
-A generic buildpack template for a reverse proxy process
+A generic buildpack template
 
 Buildpack API doc https://devcenter.heroku.com/articles/buildpack-api
