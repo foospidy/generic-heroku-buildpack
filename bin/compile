@@ -6,6 +6,9 @@ BUILD_DIR=${1}
 CACHE_DIR=${2}
 ENV_DIR=${3}
 
+CADDY_DIR=${BUILD_DIR}/caddy
+CADDY_VERSION="2.6.1"
+
 # function to export the content of the ENV_DIR into the environment.
 export_env_dir() {
   env_dir=$1
@@ -29,9 +32,15 @@ function log() {
 export_env_dir
 
 # set variables
-DOWNLOAD_URL = "https://"
-
-# get package
-curl -s ${DOWNLOAD_URL}
+DOWNLOAD_URL="https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_amd64.tar.gz"
 
 # perform install
+## create caddy directories
+mkdir -p ${CADDY_DIR}/{etc,bin}
+
+## get buildpack and extract binary
+curl -s -L ${DOWNLOAD_URL} | tar -xz
+mv caddy ${CADDY_DIR}/bin/
+
+# copy run script
+cp "$(pwd)/bin/caddy-run" ${CADDY_DIR}/bin
